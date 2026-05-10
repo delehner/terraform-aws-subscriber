@@ -53,7 +53,7 @@ data "aws_iam_policy_document" "event_consumer_policy" {
       type        = "Service"
       identifiers = ["sns.amazonaws.com"]
     }
-    
+
     condition {
       test     = "ArnEquals"
       variable = "aws:SourceArn"

@@ -9,7 +9,7 @@ resource "aws_sqs_queue" "event_queue" {
   message_retention_seconds   = var.retention_period
   visibility_timeout_seconds  = var.visibility_timeout
 
-  redrive_policy  = jsonencode({
+  redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.event_deadletter_queue.arn,
     maxReceiveCount     = var.receive_count
   })
